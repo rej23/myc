@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Column Example</title>
+	<style>
+		.column {
+			float: left;
+			width: 50%;
+			padding: 10px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+
+	<div class="column">
+		<h2>Player</h2>
+		<p>This is the content of column 1.</p>
+	</div>
+	<div class="column">
+		<h2>Computer</h2>
+		<p>This is the content of column 2.
+		</p>
+	</div>
+
+	<div class="result">
+		<a href="{% url 'home' %}"><h2>game</h2></a>
+		
+	</div>
+</body>
+
+
+
+{% endblock %}
+</html>
+
+
+
+
+
+
+
