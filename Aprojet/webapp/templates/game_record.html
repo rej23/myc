@@ -7,7 +7,8 @@
 
 
 <div class="result">
-	<a href="{% url 'home' %}"><h2>game</h2></a>
+  <a href="{% url 'home' %}"><h2>home</h2></a>
+	<a href="{% url 'thegame' %}"><h2>game</h2></a>
 </div>
 
 <h1 class="fw-light">Results</h1>
@@ -34,7 +35,7 @@
               {% endfor %}
             </tbody>
 			{% else %}
-          	<h4 class="fw-light">There's no result, please start a game</h4>
+          	<h4 class="fw-light">There's no result, play a game</h4>
           	{% endif %}
 
 
