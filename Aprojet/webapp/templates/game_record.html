@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 
-<html>
-
-<head>
-	<title>Column Example</title>
-	<style>
-		.column {
-			float: left;
-			width: 50%;
-			padding: 10px;
-			box-sizing: border-box;
-		}
-	</style>
-</head>
 
 {% extends "base.html" %}
 
 {% block content %}
-<body>
 
-	<div class="column">
-		<h2>Player</h2>
-		<p>This is the content of column 1.</p>
-	</div>
-	<div class="column">
-		<h2>Computer</h2>
-		<p>This is the content of column 2.
-		</p>
-	</div>
 
-	<div class="result">
-		<a href="{% url 'home' %}"><h2>game</h2></a>
-		
-	</div>
-</body>
+<div class="result">
+	<a href="{% url 'home' %}"><h2>game</h2></a>
+</div>
 
+<h1 class="fw-light">Results</h1>
+          {% if res %}          
+          <table class="table table-hover mt-5">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">User</th>
+                <th scope="col">User Move</th>
+                <th scope="col">Bot Move</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for i in res %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.player.name}}</td>
+                <td>{{i.user_move}}</td>
+                <td>{{i.bot_move}}</td>
+                <td>{{i.status}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+			{% else %}
+          	<h4 class="fw-light">There's no result, please start a game</h4>
+          	{% endif %}
 
 
 {% endblock %}
