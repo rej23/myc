@@ -44,7 +44,7 @@ def thegame(request):
         user_action = request.POST.get('name')
         if computer_action == user_action:
             messages.info(request, f'IT WAS A TIE TRY AGAIN')
-            result = Result.objects.create(player=user, bot_move=computer_action)
+            result = Result.objects.create(player=user, bot_move=computer_action, status='Tie', user_move=user_action)
             log.debug("Both players selected. It's a tie!")
         elif user_action == "rock":
             if computer_action == "scissors":
