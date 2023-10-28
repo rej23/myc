@@ -56,18 +56,18 @@ pipeline {
                 sh 'apt-get install -y sudo'
             }
         }
-        
+
         stage('Install Docker') {
             steps {
                 sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                sh 'sudo sh get-docker.sh'
+                sh 'su sh get-docker.sh'
             }
         }
 
         stage('Install Docker Compose') {
             steps {
-                sh 'sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
-                sh 'sudo chmod +x /usr/local/bin/docker-compose'
+                sh 'su curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
+                sh 'su chmod +x /usr/local/bin/docker-compose'
             }
         }
         
