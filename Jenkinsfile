@@ -63,21 +63,27 @@ pipeline {
                 sh 'echo "3882b2b6956248cebf60b4a33da3faef" chmod +x /usr/local/bin/docker-compose'
             }
         }
-        
-         stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t my-docker-image .'
-            }
-        }
 
-        stage('Deploy') {
+        stage('Check PATH') {
             steps {
-                dir('Aprojet'){
-                sh 'docker-compose up -d'
-            
-                }
+                sh 'echo $PATH'
             }
         }
+        
+        //  stage('Build Docker Image') {
+        //     steps {
+        //         sh 'docker build -t my-docker-image .'
+        //     }
+        // }
+
+        // stage('Deploy') {
+        //     steps {
+        //         dir('Aprojet'){
+        //         sh 'docker-compose up -d'
+            
+        //         }
+        //     }
+        // }
 
     }
 }
