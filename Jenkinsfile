@@ -48,15 +48,38 @@ pipeline {
                 }
             }
         }
-        
-        stage('Deploy') {
+
+        stage('Install Docker') {
             steps {
-                dir('Aprojet'){
-                sh 'docker-compose up -d'
-            
-                }
+                sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                sh 'sudo sh get-docker.sh'
             }
         }
+
+        stage('Install Docker Compose') {
+            steps {
+                sh 'sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
+                sh 'sudo chmod +x /usr/local/bin/docker-compose'
+            }
+        }
+        
+        //  stage('Build') {
+        //     steps {
+        //         dir('Aprojet'){
+        //         sh 'docker-compose build'
+            
+        //         }
+        //     }
+        // }
+
+        // stage('Deploy') {
+        //     steps {
+        //         dir('Aprojet'){
+        //         sh 'docker-compose up -d'
+            
+        //         }
+        //     }
+        // }
 
     }
 }
