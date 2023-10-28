@@ -37,6 +37,17 @@ pipeline {
                 }
             }
         }
+
+        stage('check file') {
+            steps {
+                script{
+                    if(sh(script: 'ls Aprojet/Dockerfile', returnStatus:true)==0){
+                        echo "file exist"
+                    } else { error "file does not exist"
+                    }
+                }
+            }
+        }
         
 
     }
