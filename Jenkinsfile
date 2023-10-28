@@ -64,12 +64,9 @@ pipeline {
             }
         }
         
-         stage('Build') {
+         stage('Build Docker Image') {
             steps {
-                dir('Aprojet'){
-                sh 'docker-compose build'
-            
-                }
+                sh 'docker build -t my-docker-image .'
             }
         }
 
