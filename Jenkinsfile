@@ -70,6 +70,11 @@ pipeline {
             }
         }
         
+        stage('Run Docker Command') {
+            steps {
+                sh '/usr/bin/docker --version'
+            }
+        }
         //  stage('Build Docker Image') {
         //     steps {
         //         sh 'docker build -t my-docker-image .'
