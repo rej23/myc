@@ -49,6 +49,14 @@ pipeline {
             }
         }
         
+        stage('Deploy') {
+            steps {
+                dir('Aprojet'){
+                sh 'docker-compose up -d'
+            
+                }
+            }
+        }
 
     }
 }
