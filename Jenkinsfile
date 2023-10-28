@@ -64,23 +64,23 @@ pipeline {
             }
         }
         
-        //  stage('Build') {
-        //     steps {
-        //         dir('Aprojet'){
-        //         sh 'docker-compose build'
+         stage('Build') {
+            steps {
+                dir('Aprojet'){
+                sh 'docker-compose build'
             
-        //         }
-        //     }
-        // }
+                }
+            }
+        }
 
-        // stage('Deploy') {
-        //     steps {
-        //         dir('Aprojet'){
-        //         sh 'docker-compose up -d'
+        stage('Deploy') {
+            steps {
+                dir('Aprojet'){
+                sh 'docker-compose up -d'
             
-        //         }
-        //     }
-        // }
+                }
+            }
+        }
 
     }
 }
