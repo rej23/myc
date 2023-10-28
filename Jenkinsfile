@@ -38,8 +38,7 @@ pipeline {
             }
         }
 
-
-        stage('check file') {
+        stage('check file 2') {
             steps {
                 script{
                     if(sh(script: 'ls Aprojet/Dockerfile', returnStatus:true)==0){
