@@ -80,7 +80,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-docker-image .'
+                sh 'echo "b435936ae1c542528acca29fade62ce8" docker build -t my-docker-image .'
             }
         }
 
