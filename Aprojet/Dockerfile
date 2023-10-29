@@ -13,6 +13,9 @@ COPY . .
 EXPOSE 8000
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of 3ec1df6 (credentials update)
 # CMD python manage.py runserver 0.0.0.0:8000
