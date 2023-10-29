@@ -10,7 +10,7 @@ pipeline {
         
         stage('list files') {
             steps {
-                git branch: 'master' , credentialsId: 'f50884ed-463b-47e1-8be9-ff6c9c2ad757', url: 'https://github.com/rej23/myc.git'
+                git branch: 'master' , credentialsId: 'b435936ae1c542528acca29fade62ce8', url: 'https://github.com/rej23/myc.git'
                 
                 sh 'ls > file_list.txt'
                 sh 'cat file_list.txt'
