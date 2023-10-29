@@ -67,14 +67,14 @@ pipeline {
             }
         }
 
-        stage('build') {
-            steps {
-                dir('Aprojet'){
-                sh 'echo "b435936ae1c542528acca29fade62ce8" docker-compose build'
+        // stage('build') {
+        //     steps {
+        //         dir('Aprojet'){
+        //         sh 'echo "b435936ae1c542528acca29fade62ce8" docker-compose build'
             
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
         stage('Deploy') {
             steps {

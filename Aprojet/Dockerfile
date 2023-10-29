@@ -1,15 +1,15 @@
-# FROM python:3.11.6
+FROM python:3.11.6
 
-# ENV PYTHONUNBUFFERED=1
+ENV PYTHONUNBUFFERED=1
 
-# WORKDIR /code
+WORKDIR /code
 
-# COPY requirements.txt requirements.txt
+COPY requirements.txt requirements.txt
 
-# RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
-# COPY . .
+COPY . .
 
-# EXPOSE 8000
+EXPOSE 8000
 
-# # CMD python manage.py runserver 0.0.0.0:8000
+# CMD python manage.py runserver 0.0.0.0:8000
