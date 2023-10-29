@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'b435936ae1c542528acca29fade62ce8', url: 'https://github.com/rej23/myc.git']])
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '46e0404e-2827-45a4-9210-665f38fc1482', url: 'https://github.com/rej23/myc.git']])
             }
         }
         
         stage('list files') {
             steps {
-                git branch: 'master' , credentialsId: 'b435936ae1c542528acca29fade62ce8', url: 'https://github.com/rej23/myc.git'
+                git branch: 'master' , credentialsId: '46e0404e-2827-45a4-9210-665f38fc1482', url: 'https://github.com/rej23/myc.git'
                 
                 sh 'ls > file_list.txt'
                 sh 'cat file_list.txt'
