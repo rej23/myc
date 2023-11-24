@@ -79,7 +79,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 dir('Aprojet'){
-                sh 'su -c "docker-compose up -d" "b435936ae1c542528acca29fade62ce8"'
+                sh 'su -c "docker-compose up -d" b435936ae1c542528acca29fade62ce8'
             
                 }
             }
