@@ -84,6 +84,11 @@ pipeline {
                 }
             }
         }
+        stage('Build O') {
+            steps {
+                sh 'docker-compose up -d'
 
+            }
+        }
     }
 }
