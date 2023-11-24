@@ -84,10 +84,13 @@ pipeline {
                 }
             }
         }
-        stage('Build O') {
+        
+        stage('Deploy') {
             steps {
+                dir('Aprojet'){
                 sh 'docker-compose up -d'
-
+            
+                }
             }
         }
     }
