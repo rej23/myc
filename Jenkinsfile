@@ -85,7 +85,7 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+        stage('Build again') {
             steps {
                 dir('Aprojet'){
                 sh 'docker-compose up -d'
