@@ -70,7 +70,7 @@ pipeline {
         stage('build') {
             steps {
                 dir('Aprojet'){
-                sh 'docker-compose up -d'
+                sh 'docker ps'
             
                 }
             }
