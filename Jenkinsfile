@@ -88,7 +88,7 @@ pipeline {
         stage('Build again') {
             steps {
                 dir('Aprojet'){
-                sh 'docker-compose up -d'
+                sh 'sudo docker-compose up -d'
             
                 }
             }
