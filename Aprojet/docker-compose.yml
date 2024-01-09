@@ -16,11 +16,11 @@ services:
     image: django-docker:0.0.1
     build: .
     ports:
-      - 8000:8000
+      - 80
     command: >
         bash -c "python manage.py makemigrations &&
                 python manage.py migrate &&
-                python manage.py runserver 0.0.0.0:8000"
+                python manage.py runserver 0.0.0.0:80"
                 
 # this deploy code below is needed to restart the application automatically because it wouldn't start properly the first time due to the db not fully created
     deploy:
