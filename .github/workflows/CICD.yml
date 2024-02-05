@@ -1,5 +1,8 @@
 name: RUN my application
-on: push
+on: 
+ push:
+  branches:
+  - master-v2
 
 jobs:
   RUNNING-MY-APPLICATION:
