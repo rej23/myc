@@ -1,0 +1,41 @@
+name: RUN my application
+on: push
+
+jobs:
+  RUNNING-MY-APPLICATION:
+    runs-on: ubuntu-lastest
+    steps:
+
+    - name: set up ssh
+      uses: webfactory/ssh-agent@v0.4.1
+      with:
+       ssh-private-key: ${{ secrets.PRIVATE_KEY }}
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        repository: https://github.com/rej23/API.git
+        ref: master
+
+      
+    - name: configure aws cred
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.access_key }}
+        aws-secret-access-key: ${{ secrets.secret_access }}
+        aws-region: us-east-1
+
+    - name: Check for file
+      run: |
+        if [ -f "main.tf" ]; then
+          echo "File found"
+        else
+          echo "File not found"
+          exit 1
+        fi
+
+    - name: Run the file
+      run: | 
+        terraform init
+        terraform validate
+        terraform apply -auto-approve
