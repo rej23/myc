@@ -1,9 +1,9 @@
-name: RUN my application
+name: File Check and Run
 on: push
 
 jobs:
-  RUNNING-MY-APPLICATION:
-    runs-on: ubuntu-lastest
+  check-and-run:
+    runs-on: ubuntu-latest
     steps:
 
     - name: set up ssh
@@ -13,14 +13,14 @@ jobs:
 
     - name: Checkout repository
       uses: actions/checkout@v2
-
+      
     - name: configure aws cred
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-access-key-id: ${{ secrets.access_key }}
         aws-secret-access-key: ${{ secrets.secret_access }}
         aws-region: us-east-1
-
+            
     - name: Check for file
       run: |
         if [ -f "main.tf" ]; then
@@ -29,7 +29,7 @@ jobs:
           echo "File not found"
           exit 1
         fi
-
+   
     - name: Run the file
       run: | 
         terraform init
