@@ -17,7 +17,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        repository: https://github.com/rej23/API.git
+        repository: rej23/API.git
         ref: main
       
     - name: configure aws cred
