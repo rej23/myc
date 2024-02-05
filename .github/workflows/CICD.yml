@@ -39,3 +39,11 @@ jobs:
         terraform init
         terraform validate
         terraform apply -auto-approve
+        sleep 10
+        ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -v -i ansible_inventory.yaml playbook.yml
+
+    - name: Delay for 30 seconds
+      run: sleep 30s
+      
+    - name: Destroy Terraform Resources
+      run: terraform destroy -auto-approve
