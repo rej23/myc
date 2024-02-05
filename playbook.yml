@@ -1,0 +1,62 @@
+- name: Ping and Install Docker
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ping the server
+      ping:
+
+    - name: Update APT
+      apt:
+        update_cache: yes
+
+    - name: Install Docker dependencies
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+
+    - name: Add Docker GPG key
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+    - name: Add Docker APT repository
+      apt_repository:
+        repo: deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable
+
+    - name: Install Docker Engine
+      apt:
+        name: docker-ce
+        state: present
+
+    - name: Install Docker Compose
+      shell: curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Install git
+      become: yes
+      apt:
+        name: git
+        state: present
+
+
+    - name: Clone the git repository
+      ansible.builtin.git:
+        repo: https://github.com/rej23/myc.git
+        dest: one
+        update: yes
+
+    
+
+    - name: Starting Docker compose up
+      command: docker compose up -d
+      args:
+        chdir: /home/ubuntu/one/Aprojet
