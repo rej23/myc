@@ -11,8 +11,8 @@ jobs:
       with:
        ssh-private-key: ${{ secrets.PRIVATE_KEY }}
 
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    # - name: Checkout repository
+    #   uses: actions/checkout@v2
 
     - name: Checkout repository
       uses: actions/checkout@v2
