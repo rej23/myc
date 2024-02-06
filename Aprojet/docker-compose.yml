@@ -1,7 +1,6 @@
 version: '3'
 
 services:
-
   db:
     image: mysql
     environment:
@@ -11,7 +10,7 @@ services:
       - "3307:3306"
     expose:
       - "3306"
-      
+
   django:
     image: django-docker:0.0.1
     build: .
@@ -28,6 +27,11 @@ services:
         condition: on-failure
         delay: 10s
 
-  
 
-  
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+
+# when coonecting your database to your grafana remeber to use db instead of localhost.
