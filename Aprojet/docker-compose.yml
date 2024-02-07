@@ -33,5 +33,6 @@ services:
     image: grafana/grafana
     ports:
       - "3000:3000"
+      
 
 # when coonecting your database to your grafana remeber to use db instead of localhost.
