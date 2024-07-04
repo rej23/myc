@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+#below is for keypair value
     - name: set up ssh
       uses: webfactory/ssh-agent@v0.4.1
       with:
