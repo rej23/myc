@@ -44,3 +44,4 @@ jobs:
       
     - name: Destroy Terraform Resources
       run: terraform destroy -auto-approve
+
